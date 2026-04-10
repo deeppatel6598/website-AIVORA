@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+/* ─── Aivora Design Tokens ──────────────────────────────────────────────── */
+@theme inline {
+  /* Color Palette */
+  --color-navy-950: #020b18;
+  --color-navy-900: #040f1f;
+  --color-navy-800: #071828;
+
+  --color-teal: #0d4f5c;
+  --color-teal-light: #1a7a8a;
+  --color-teal-glow: rgba(13, 79, 92, 0.2);
+
+  --color-violet: #7c5cff;
+  --color-violet-light: #a48fff;
+  --color-violet-glow: rgba(124, 92, 255, 0.2);
+
+  --color-sage: #a8c5b5;
+  --color-mist: #e8f0ee;
+
+  /* Iridescent gradient stops */
+  --color-iris-cyan: #7afcff;
+  --color-iris-violet: #c4a7ff;
+  --color-iris-peach: #ffd6a5;
+
+  /* Typography */
+  --font-display: "Inter Tight", "SF Pro Display", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ─── Base Styles ────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #020b18;
+  color: #e8f0ee;
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ─── Glass Utility Classes ──────────────────────────────────────────────── */
+@layer utilities {
+  .glass-surface {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-surface-strong {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(60px) saturate(200%);
+    -webkit-backdrop-filter: blur(60px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-inner-highlight::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .iridescent-text {
+    background: linear-gradient(135deg, #7afcff, #c4a7ff, #ffd6a5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .display-xl {
+    font-family: "Inter Tight", "SF Pro Display", ui-sans-serif, system-ui, sans-serif;
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  .display-lg {
+    font-family: "Inter Tight", "SF Pro Display", ui-sans-serif, system-ui, sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .display-md {
+    font-family: "Inter Tight", "SF Pro Display", ui-sans-serif, system-ui, sans-serif;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+  }
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #020b18;
+}
+::-webkit-scrollbar-thumb {
+  background: #0d4f5c;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1a7a8a;
+}
+
+/* ─── Selection ──────────────────────────────────────────────────────────── */
+::selection {
+  background: rgba(124, 92, 255, 0.3);
+  color: #e8f0ee;
+}
