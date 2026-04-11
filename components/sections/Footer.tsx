@@ -16,6 +16,7 @@ const FOOTER_LINKS = {
   Company: [
     { label: "Our Process", href: "/process" },
     { label: "Success Stories", href: "/stories" },
+    { label: "Refer & Earn", href: "/refer" },
     { label: "Book a Call", href: "/book" },
     { label: "Contact", href: "/contact" },
   ],

@@ -9,9 +9,10 @@ import GlassButton from "./GlassButton";
 
 const NAV_LINKS = [
   { label: "Services", href: "/#services" },
-  { label: "Process", href: "/#process" },
+  { label: "Process", href: "/process" },
   { label: "Success Stories", href: "/stories" },
   { label: "Pricing", href: "/pricing" },
+  { label: "Refer & Earn", href: "/refer" },
   { label: "Contact", href: "/contact" },
 ];
 
