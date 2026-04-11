@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import SmoothScroll from "@/components/animations/SmoothScroll";
+import PageTransition from "@/components/animations/PageTransition";
+import AuroraBackground from "@/components/animations/AuroraBackground";
+import GlassNav from "@/components/glass/GlassNav";
+import Footer from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
   title: "Aivora Jobs — Launch Your Career with Strategy",
@@ -31,10 +35,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <head>
-        {/*
-          Load Inter + Inter Tight via Google Fonts CDN with font-display:swap.
-          next/font/google is disabled so this falls back gracefully when offline.
-        */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -47,7 +47,21 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
-        <SmoothScroll>{children}</SmoothScroll>
+        {/* Fixed aurora — sits behind every page */}
+        <AuroraBackground />
+
+        <SmoothScroll>
+          {/* Persistent nav */}
+          <GlassNav />
+
+          {/* Animated page content */}
+          <main className="relative z-10 flex-1">
+            <PageTransition>{children}</PageTransition>
+          </main>
+
+          {/* Persistent footer */}
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );
